@@ -8,14 +8,15 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
+    
     },
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      HtmlWebpackPlugin({
+      new HtmlWebpackPlugin({
         template: './index.html',
         title: 'Text Editor'
       }),
@@ -53,7 +54,7 @@ module.exports = () => {
         },
         {
           test: /\.m?js$/,
-          exclude: /node-modules/,
+          exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
             options: {
